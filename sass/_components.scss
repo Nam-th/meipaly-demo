@@ -1,0 +1,38 @@
+@use 'variable';
+
+.heading {
+    padding-left: 1.4rem;
+    padding-right: 1.4rem;
+    .slogan {
+        font-size: 1.4rem;
+        text-align: center;
+    }
+
+    .title {
+        font-size: 5rem;
+        text-align: center;
+        font-weight: 400;
+    }
+
+    .description {
+        font-size: 2rem;
+        text-align: center;
+        color: $text-color;
+        margin-top: 20px;
+    }
+}
+
+.btn-normal {
+    height: 5.8rem;
+    background-color: $black-color;
+    color: $white-color;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.5s;
+    
+    &:hover {
+        background-color: $primary-color;
+    }
+}
+

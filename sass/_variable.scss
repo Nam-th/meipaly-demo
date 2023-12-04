@@ -1,0 +1,45 @@
+// color ----------------------------------------------------
+$primary-color: #e62b4a;
+$white-color: white;
+$black-color: black;
+$text-color: #888;
+$padding-item: 1.5rem;
+
+
+// Mixin---------------------------------------------------------------------
+@mixin heading-color ($slogan-color: $primary-color, $title-color: $white-color) {
+    .slogan {
+        color: $slogan-color;
+    }
+
+    .title {
+        color: $title-color;
+    }
+}
+
+@mixin text-format ($font-size: inherit, $color: inherit, $style: inherit) {
+    font-size: $font-size;
+    color: $color;
+    text-transform: $style;
+}
+
+@mixin flex-container($direction: row, $justify: center, $align: center) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin icon-btn ($size: auto, $shape: square){
+    text-align: center;
+    width: $size;
+    height: $size;
+    line-height: $size;
+
+    @if $shape == "square" {
+        border-radius: 0;
+    }
+    @else if $shape == "circle" {
+        border-radius: 50%;
+    }
+}

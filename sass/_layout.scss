@@ -1,0 +1,399 @@
+@import 'variable';
+
+// HEADER-------------------------------------------------
+.header {
+    width: 100%;
+    background-color: transparent;
+    border-bottom: 1px solid #d3d3d3;
+    position: absolute;
+    z-index: 1;
+
+    &-content {
+        @include flex-container(row, space-between, center);
+        height: 10rem;
+        color: $white-color;
+    }
+
+    &-logo {
+        @include flex-container (row, left, center);
+    
+        i, h2{
+            font-size: 3.2rem;
+        }
+    
+        i {
+            padding-right: 0.8rem;
+        }
+    }
+  
+    &-nav-list {
+        display: flex;
+        font-size: 1.7rem;
+
+        a {
+            padding: 0 2.6rem;
+            text-transform: uppercase;
+            transition: all 0.5s;
+            line-height: 4.2rem;
+
+            &:hover {
+                color: $primary-color;
+            }
+        }
+
+        .nav-item--active a {
+            color: $primary-color;
+        }
+    }
+
+    //Responsive
+    #open-menu {
+        display: none;
+
+        &:checked ~ .header-nav-list{
+            display: block;
+        }
+    }
+    &-menu-icon {
+        font-size: 3.4rem;
+        display: none;
+    }
+}
+
+
+
+//BANNER -------------------------------------------------------
+.banner {
+    height: 70rem;
+    width: 100%;
+    background-image: url(https://cybersoft-meipaly.vercel.app/img/home_slider.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    text-align: center;
+    @include flex-container;
+
+    &-content {
+        @include text-format (unset, $white-color, uppercase);
+        p {
+            font-size: 2.5rem;
+        }
+
+        h1 {
+            font-size: 7.5rem;
+            line-height: 1.2;
+        }
+
+        i {
+            display: block;
+            padding-top: 3rem;
+            font-size: 3rem;
+        }
+    }
+
+    &-btn {
+        margin-top: 2rem;
+        padding: 1.5rem 2.5rem;
+        background-color: $primary-color;
+        @include text-format (1.6rem, $white-color, uppercase);
+        border: none;
+        outline: none;
+        cursor: pointer;
+        transition: all 0.5s;
+
+        &:hover {
+            background-color: #af2239;
+        }
+    }
+}
+
+// CONTENT ----------------------------------------------------
+.content > * {
+    padding: 10rem 0;
+}
+//Service ------------------
+.service {
+    background-color: $black-color;
+
+    .heading {
+        @include heading-color($primary-color, $white-color);
+    }
+
+    &-list {
+        width: 85%;
+        padding-top: 3rem;
+        margin: 0 auto;
+    }
+
+    &-item {
+        background-color: $white-color;
+        height: 23rem;
+        @include flex-container (column, center, center);
+        @include text-format (1.4rem, #848482, uppercase);
+
+        text-align: center;
+        padding: 0 2rem;
+        position: relative;
+
+        i {
+            font-size: 5rem;
+            margin-bottom: 0.4rem;
+        }
+
+        &::before {
+            content: "";
+            width: 4px;
+            height: 100%;
+            background-color: $primary-color;
+            transition: all 0.5s;
+            position: absolute;
+            right: 0;
+            bottom: 100%;
+        }
+
+        &:hover::before {
+            bottom: 0;
+        }
+    }
+}
+.owl-dot.active span {
+    background-color: $primary-color !important;
+}
+  
+
+// Portfolio--------------------
+
+.portfolio {
+    
+    .heading {
+        @include heading-color($text-color, $black-color);
+    }
+    
+    &-list {
+        margin-top: 5rem;
+    }
+
+    
+    &-item {
+        height: 40rem;
+        padding: $padding-item;
+        position: relative;
+        overflow: hidden;
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(100%) contrast(50%);
+        }
+    
+        .overlay {
+            background-color: rgba(230, 43, 74, 0.6);
+            opacity: 0;
+            position: absolute;
+            top: $padding-item;
+            left: $padding-item;
+            right: $padding-item;
+            bottom: $padding-item;
+            overflow: hidden;
+            transition: all 0.5s;
+        }
+    
+        &:hover .overlay{
+            opacity: 1;
+        }
+    
+        &:hover .portfolio-icon {
+            top: 2.5rem;
+        }
+    
+        &:hover .portfolio-text {
+            bottom: 2.5rem;
+        }
+    }
+
+    &-icon {
+        display: block;
+        @include text-format (1.7rem, $black-color);
+        @include icon-btn (3.5rem);
+        background-color: $white-color;
+        position: absolute;
+        right: 2.5rem;
+        top: 4.5rem;
+        transition: all 0.5s;
+
+        &:hover {
+            background-color: $black-color;
+            color: $white-color;
+        }
+    }
+    
+    &-text {
+        @include text-format (1.6rem, #D0C7C8, uppercase);
+        position: absolute;
+        left: 2.5rem;
+        bottom: .5rem;
+        transition: all 0.5s;
+
+        h3 {
+            font-size: 1.9rem;
+            color: $white-color;
+            @include text-format (1.9rem, $white-color, uppercase);
+        }
+    }
+}
+
+
+
+// Blog ------------------
+.blog {
+    background-color: #f3f3f3;
+
+    .heading {
+        @include heading-color($text-color, $black-color);
+    }
+
+    &-list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);    
+        margin-top: 5rem;
+    }
+
+    &-item {
+        position: relative;;
+
+        img {
+            width: 100%;
+            height: 100%;
+            opacity: 0.65;
+            transition: all 0.5s;
+        }
+
+        &:first-child {
+            grid-column: 1 / 3;
+            grid-row: 1 / 3;
+        } 
+
+        &:last-child {
+            grid-column: 3 / 5;
+            grid-row: 3 / 5;
+        } 
+
+        &:hover img {
+            opacity: 1;
+        }
+
+    }
+
+}
+
+// Counter -----------------------
+.counter {
+    background: $black-color;
+
+    &-item {
+        margin: 1rem 0;
+    }
+    
+    p {
+        text-align: center;
+        &:first-child {
+            @include text-format (6rem, $white-color);
+            font-weight: 300;
+        }
+
+        &:last-child {
+            color: $text-color;
+            font-size: 2rem;
+            @include text-format (2rem, $text-color, uppercase);
+        }
+    }
+}
+
+// Experience ---------------------
+.experience {
+    background: url(https://cybersoft-meipaly.vercel.app/img/bussiness_img_1.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+
+    .heading {
+        @include heading-color($primary-color, $white-color);
+    }
+
+    &-content {
+        text-align: center;
+    }
+
+    &-video {
+
+        video {
+            width: 75%;
+            margin: 3rem 0 0 0;
+            text-align: center;
+        }
+    }
+}
+
+.contact {
+    &-wrap {
+        display: flex;
+        padding: 3rem 8rem 0;
+    }
+
+    &-map {
+        flex: 1;
+
+        iframe {
+            width: 100%;
+            height: 45rem;
+        }
+    }
+
+    &-form {
+        flex:1;
+        padding: 1.5rem;
+        @include flex-container (column, space-between, normal);
+    }
+
+    &-input {
+        width: 100%;
+
+        input, textarea {
+            width: 100%;
+            font-size: 1.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+    }
+}
+
+// FOOTER -------------------------------------
+.footer {
+    background-color: $black-color;
+    height: 25rem;
+    color: $white-color;
+
+    &-content {
+        height: 100%;
+        @include flex-container(row, space-between, center);
+        margin: 0.8rem;
+    }
+
+    &-copyright {
+        font-size: 1.4rem;
+    }
+
+    &-social {
+        i {
+            font-size: 1.6rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            display: inline-block;
+            @include icon-btn (5.4rem, circle);
+            margin-left: 6px;
+            transition: all 0.5s;
+
+            &:hover {
+                background-color: $primary-color;
+            } 
+        }
+    }
+}
